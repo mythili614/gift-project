@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<style>
+
+/* ================= HEADER ================= */
+.main-header{
+  background:#fff;
+  padding:20px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #eee;
+  font-family:'Poppins', sans-serif;
+}
+
+/* LEFT */
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.brand-text{
+  font-family:cursive;
+  font-size:20px;
+}
+
+/* LOGO BLINK (IMAGE ONLY) */
+.logo-blink{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  position:relative;
+  overflow:hidden;
+}
+
+.logo-blink img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  display:block;
+  animation:logoBlink 1.8s infinite;
+}
+
+/* BLINK KEYFRAMES */
+@keyframes logoBlink{
+  0%{filter:none;}
+  25%{filter:brightness(0);}
+  50%{filter:none;}
+  75%{filter:brightness(0);}
+  100%{filter:none;}
+}
+
+/* NAV */
+.header-nav{
+  display:flex;
+  gap:40px;
+}
+
+.header-nav a{
+  text-decoration:none;
+  color:#000;
+  font-size:18px;
+}
+
+.header-nav a.active{
+  color:#F1C40F;
+}
+
+/* RIGHT */
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+/* SEARCH */
+.search-box{
+  position:relative;
+}
+
+.search-box input{
+  padding:12px 45px 12px 20px;
+  border-radius:25px;
+  border:1px solid #F1C40F;
+  outline:none;
+}
+
+.search-box i{
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+/* PROFILE */
+.profile-img{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* ICONS */
+.icon{
+  font-size:22px;
+  cursor:pointer;
+}
+
+
+
+
+/* ================= CONTACT SECTION ================= */
+.contact-hero{
+  padding:80px 60px 120px;
+  background:#fff;
+}
+
+.contact-title{
+  text-align:center;
+  font-size:36px;
+  font-weight:600;
+  margin-bottom:60px;
+}
+
+/* TOP BANNER */
+.contact-banner{
+  display:flex;
+  align-items:center;
+  margin-bottom:40px;
+}
+
+/* IMAGE */
+.contact-image{
+  border-left:2px solid #F1C40F;
+  padding-left:30px;
+}
+
+.contact-image img{
+  width:260px;
+  height:auto;
+}
+
+/* YELLOW BOX */
+.contact-highlight{
+  background:#F1C40F;
+  padding:40px 50px;
+  margin-left:30px;
+  flex:1;
+  border:1px solid #000;
+}
+
+.contact-highlight p{
+  font-size:22px;
+  font-weight:600;
+  line-height:1.5;
+}
+
+/* DESCRIPTION */
+.contact-desc{
+  max-width:900px;
+  font-size:18px;
+  line-height:1.7;
+  margin:50px 0 60px;
+}
+
+/* DETAILS */
+.contact-details{
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+}
+
+/* BOX */
+.contact-box{
+  max-width:320px;
+}
+
+.contact-box i{
+  font-size:22px;
+  color:#000;
+  margin-bottom:12px;
+}
+
+.contact-box h4{
+  font-size:20px;
+  color:#F1C40F;
+  margin-bottom:10px;
+}
+
+.contact-box p{
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+/* SOCIAL */
+.social-box{
+  text-align:center;
+}
+
+.connect-title{
+  color:#F1C40F;
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin-bottom:12px;
+}
+
+.social-icons i{
+  font-size:20px;
+  cursor:pointer;
+}
+
+
+/* ================= MAIN FOOTER ================= */
+.main-footer{
+  background:#F1C40F;
+  padding:70px 60px 30px;
+  font-family:'Poppins', sans-serif;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr 1.2fr 1.4fr;
+  gap:50px;
+  align-items:start;
+}
+
+/* LOGO */
+.footer-logo{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.footer-logo img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+}
+
+.brand-name{
+  margin-top:10px;
+  font-family:cursive;
+}
+
+/* COLUMNS */
+.footer-col h4{
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+.footer-col a,
+.footer-col p{
+  display:block;
+  font-size:16px;
+  color:#000;
+  text-decoration:none;
+  margin-bottom:14px;
+}
+
+/* SOCIAL ICONS */
+.social-icons{
+  display:flex;
+  gap:15px;
+  margin-top:15px;
+}
+
+.social-icons i{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  margin-top:50px;
+  font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<header class="main-header">
+
+  <!-- LOGO -->
+  <div class="header-left">
+    <div class="logo-blink">
+      <img src="Frame 427318985.png" alt="VibeyGifts Logo">
+    </div>
+    <span class="brand-text">VibeyGifts</span>
+  </div>
+
+  <!-- NAV -->
+  <nav class="header-nav">
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="contact.html">Contact us</a>
+    <a href="about.html">About us</a>
+  </nav>
+
+  <!-- RIGHT -->
+  <div class="header-right">
+
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" placeholder="Search">
+      <i class="fa fa-search"></i>
+    </div>
+
+    <!-- PROFILE -->
+    <img src="Photo by Clem Onojeghuo.png" class="profile-img" alt="User">
+
+    <!-- ICONS -->
+    <i class="fa-regular fa-heart icon"></i>
+    <i class="fa-solid fa-cart-shopping icon"></i>
+    <i class="fa-regular fa-bell icon"></i>
+
+  </div>
+
+</header>
+
+
+
+<!-- ================= CONTACT HERO ================= -->
+<section class="contact-hero">
+
+  <h2 class="contact-title">Contact us</h2>
+
+  <!-- TOP BANNER -->
+  <div class="contact-banner">
+
+    <!-- LEFT IMAGE -->
+    <div class="contact-image">
+      <img src="image 44.png" alt="Customer Support">
+    </div>
+
+    <!-- RIGHT YELLOW BOX -->
+    <div class="contact-highlight">
+      <p>
+        We’re here to help you with your gifting needs, questions, or special requests.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- DESCRIPTION -->
+  <p class="contact-desc">
+    We’re here to help you with your gifting needs, questions, or special requests.
+    Whether you're tracking an order, need help choosing the perfect gift, or want
+    something custom-made — we’d love to hear from you!
+  </p>
+
+  <!-- CONTACT DETAILS -->
+  <div class="contact-details">
+
+    <!-- CALL -->
+    <div class="contact-box">
+      <i class="fa-solid fa-phone"></i>
+      <h4>Call Us</h4>
+      <p>General Inquiries: +1 (800) 555-CATZ</p>
+      <p>Adoption Support: +1 (800) 555-PAWS</p>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="contact-box">
+      <i class="fa-solid fa-envelope"></i>
+      <h4>Email Us</h4>
+      <p>General: info@Vibeygifty.com</p>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="contact-box social-box">
+      <h4 class="connect-title">Connect with us</h4>
+
+      <div class="social-icons">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+
+      <p>[ Facebook ] | [ Instagram ] | [ Twitter ] | [ YouTube ]</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer class="main-footer">
+
+  <div class="footer-grid">
+
+    <!-- LOGO -->
+    <div class="footer-logo">
+      <div class="logo-blink">
+        <img src="Frame 427318985.png" alt="VibeyGifts">
+      </div>
+      <h3 class="brand-name">VibeyGifts</h3>
+    </div>
+
+    <!-- CUSTOMER SERVICE -->
+    <div class="footer-col">
+      <h4>Customer service</h4>
+      <a href="#">My Account</a>
+      <a href="#">Checkup</a>
+      <a href="#">FAQ</a>
+      <a href="#">Return</a>
+    </div>
+
+    <!-- COMPANY -->
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About us</a>
+      <a href="#">Blogs</a>
+      <a href="#">Contact us</a>
+      <a href="#">Career</a>
+    </div>
+
+    <!-- OUR INFORMATION -->
+    <div class="footer-col">
+      <h4>Our information</h4>
+      <a href="#">Privacy</a>
+      <a href="#">Terms & Condition</a>
+      <a href="#">Customer Feed back</a>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h4>Mobile: 123-456-789</h4>
+      <p>Email_ Vibeygif@gmail.com</p>
+      <p>Address : 12,,north city–001</p>
+
+      <div class="social-icons">
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 Giftey.co. All rights reserved.</p>
+    <p><strong>Terms & Conditions</strong> | <strong>Privacy Policy</strong></p>
+  </div>
+
+</footer>
+
+</body>
+</html>

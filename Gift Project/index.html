@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VibeyGifts</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+<style>
+/* ===== COMMON ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+body{
+  background:#fdf6f4;
+}
+body, html{
+  overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+header{
+  background:#fff;
+  padding:20px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #eee;
+}
+/* ===== LOGO BLINK ANIMATION ===== */
+.logo-blink{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  position:relative;
+  overflow:hidden;
+}
+
+.logo-blink img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  display:block;
+}
+
+/* black blink layer */
+.logo-blink::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:black;
+  opacity:0;
+  animation:blackBlink 1.8s infinite;
+  border-radius:50%;
+}
+
+@keyframes blackBlink{
+  0%{opacity:0;}
+  25%{opacity:0.6;}
+  50%{opacity:0;}
+  75%{opacity:0.6;}
+  100%{opacity:0;}
+}
+
+nav{
+  display:flex;
+  gap:40px;
+}
+nav a{
+  text-decoration:none;
+  color:#000;
+  font-size:18px;
+}
+.actions{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.search-box{
+  position:relative;
+}
+.search-box input{
+  padding:12px 45px 12px 20px;
+  border-radius:25px;
+  border:1px solid #F1C40F;
+  outline:none;
+}
+.search-box i{
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+}
+.register-btn{
+  background:#F1C40F;
+  border:none;
+  padding:12px 28px;
+  border-radius:25px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* ===== POPUP ===== */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+.popup{
+  background:#fff;
+  padding:35px;
+  width:420px;
+  border-radius:20px;
+  position:relative;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+.popup h2{
+  text-align:center;
+  margin-bottom:25px;
+}
+.close{
+  position:absolute;
+  right:20px;
+  top:15px;
+  font-size:22px;
+  cursor:pointer;
+}
+.popup input{
+  width:100%;
+  padding:14px;
+  border-radius:25px;
+  border:1px solid #F1C40F;
+  margin-bottom:18px;
+  outline:none;
+}
+.login-btn{
+  width:100%;
+  padding:14px;
+  background:#F1C40F;
+  border:none;
+  border-radius:25px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* ===== SUCCESS ===== */
+.success{
+  display:none;
+  text-align:center;
+  margin-top:80px;
+}
+.success img{
+  width:300px;
+}
+.success h1{
+  color:#f4b400;
+  margin-top:20px;
+
+}
+
+.hero{
+  position:relative;
+  min-height:600px;
+  padding:80px;
+  display:flex;
+  align-items:center;
+  color:#fff;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(246,196,93,0.18),
+      rgba(186,120,45,0.45),
+      rgba(92,45,18,0.75),
+      rgba(0,0,0,0.90)
+    ),
+    url("frame 427318986.png");
+
+  background-size:cover;
+  background-position:center;
+  transition:opacity 0.15s ease; /* blink visible */
+}
+
+
+
+
+/* CONTENT ABOVE */
+.hero-content{
+  position: relative;
+  z-index: 2;
+}
+
+.hero-actions{
+  display:flex;
+  gap:20px;
+}
+
+.hero-actions button{
+  background:#F1C40F;
+  border:none;
+  padding:14px 32px;
+  border-radius:30px;
+  font-size:18px;
+}
+
+
+/* BLINK KEYFRAMES */
+@keyframes heroBlink{
+  0%   { opacity:0; }
+  40%  { opacity:0; }
+  50%  { opacity:0.25; }
+  60%  { opacity:0; }
+  100% { opacity:0; }
+}
+
+
+/* ===== RATING ===== */
+.hero-rating{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.avatars{
+  display:flex;
+  align-items:center;
+}
+
+.avatars img{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:2px solid #fff;
+  margin-left:-12px;
+}
+
+.avatars img:first-child{
+  margin-left:0;
+}
+
+.plus{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#F1C40F;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  margin-left:-12px;
+}
+
+.rating-text{
+  font-size:14px;
+}
+
+
+
+
+
+/* ================= WHY CHOOSE US ================= */
+.why-choose{
+  padding:90px 60px;
+  text-align:center;
+  background:#fff;
+}
+
+.why-choose h2{
+  font-size:36px;
+  margin-bottom:60px;
+  font-weight:600;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:50px;
+}
+
+.why-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:20px;
+}
+
+.why-card img{
+  width:200px;
+  height:260px;
+  object-fit:cover;
+  border-radius:30px;
+}
+
+.why-card p{
+  font-size:18px;
+  font-weight:500;
+}
+
+
+
+
+/* ================= FEATURED COLLECTIONS ================= */
+.featured{
+  padding:100px 60px;
+  background:#fff;
+  text-align:center;
+}
+
+.featured h2{
+  font-size:36px;
+  font-weight:600;
+  margin-bottom:70px;
+}
+
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+
+/* PRODUCT CARD */
+.product-card{
+  border:1.5px solid #000;
+  border-radius:30px;
+  padding:20px;
+  position:relative;
+  text-align:center;
+}
+
+.product-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border-radius:20px;
+  margin-bottom:20px;
+}
+
+.product-card h3{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.price{
+  color:#ff4d00;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+/* HEART ICON */
+.wish{
+  position:absolute;
+  top:18px;
+  right:18px;
+  background:#fff;
+  border-radius:50%;
+  padding:6px 9px;
+  font-size:18px;
+  color:#F1C40F;
+  border:1px solid #F1C40F;
+}
+
+/* BUTTONS */
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+
+.shop{
+  background:#F1C40F;
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.custom{
+  background:#fff;
+  border:1px solid #000;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+
+
+
+
+
+/* ================= SPECIAL OFFER ================= */
+.special-offer{
+  padding:100px 70px;
+  background:#fff;
+}
+
+.offer-title{
+  text-align:center;
+  font-size:34px;
+  font-weight:600;
+  margin-bottom:80px;
+}
+
+.offer-wrapper{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:60px;
+}
+
+/* LEFT */
+.offer-content{
+  max-width:650px;
+}
+
+.offer-content h1{
+  font-size:48px;
+  font-weight:700;
+  margin-bottom:30px;
+}
+
+.offer-content .highlight{
+  color:#F1C40F;
+}
+
+.offer-content .discount{
+  color:#ff4d00;
+}
+
+.offer-content h3{
+  font-size:22px;
+  font-weight:500;
+  margin-bottom:20px;
+}
+
+.offer-content p{
+  font-size:18px;
+  line-height:1.7;
+  color:#333;
+}
+
+/* RIGHT IMAGE */
+.offer-image img{
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+
+/* ================= FAQ SECTION ================= */
+.faq-section{
+  padding:100px 60px;
+  background:#fff;
+}
+
+.faq-section h2{
+  text-align:center;
+  font-size:36px;
+  font-weight:600;
+  margin-bottom:60px;
+}
+
+.faq-box{
+  max-width:1000px;
+  margin:0 auto;
+  border:2px solid #F1C40F;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.faq-item{
+  border-bottom:2px solid #F1C40F;
+}
+
+.faq-item:last-child{
+  border-bottom:none;
+}
+
+.faq-question{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:30px;
+  cursor:pointer;
+}
+
+.faq-question h3{
+  font-size:20px;
+  font-weight:600;
+}
+
+.faq-question .icon{
+  font-size:24px;
+  transition:transform 0.3s ease;
+}
+
+.faq-answer{
+  padding:0 30px 30px;
+  display:none;
+}
+
+.faq-answer p{
+  font-size:17px;
+  line-height:1.7;
+  color:#333;
+}
+
+/* ACTIVE STATE */
+.faq-item.active .faq-answer{
+  display:block;
+}
+
+.faq-item.active .icon{
+  transform:rotate(180deg);
+}
+
+
+
+/* ================= MAIN FOOTER ================= */
+.main-footer{
+  background:#F1C40F;
+  padding:70px 60px 30px;
+  font-family:'Poppins', sans-serif;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr 1.2fr 1.4fr;
+  gap:50px;
+  align-items:start;
+}
+
+/* LOGO */
+.footer-logo{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.footer-logo img{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+}
+
+.brand-name{
+  margin-top:10px;
+  font-family:cursive;
+}
+
+/* COLUMNS */
+.footer-col h4{
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+.footer-col a,
+.footer-col p{
+  display:block;
+  font-size:16px;
+  color:#000;
+  text-decoration:none;
+  margin-bottom:14px;
+}
+
+/* SOCIAL ICONS */
+.social-icons{
+  display:flex;
+  gap:15px;
+  margin-top:15px;
+}
+
+.social-icons i{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+  cursor:pointer;
+}
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  margin-top:50px;
+  font-size:14px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="logo">
+  <div class="logo-blink">
+    <img src="Frame 427318985.png" alt="Logo">
+  </div>
+</div>
+
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blogs.html">Blogs</a>
+    <a href="contact.html">Contact us</a>
+    <a href="about.html">About us</a>
+  </nav>
+
+  <div class="actions">
+    <div class="search-box">
+      <input type="text" placeholder="Search">
+      <i class="fa fa-search"></i>
+    </div>
+    <button class="register-btn" onclick="openPopup()">Register</button>
+  </div>
+</header>
+
+<!-- ===== LOGIN SUCCESS ===== -->
+<div class="success" id="success">
+  <img src="success-image.png" alt="">
+  <h1>Login Successfully</h1>
+</div>
+
+
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1>Wrapped with Love</h1>
+    <p>
+      Every gift tells a story — add your personal touch with thoughtful
+      wrapping and heartfelt notes
+    </p>
+
+    <div class="hero-actions">
+      <button>Explore now</button>
+      <a href="#">Enquiry</a>
+    </div>
+  </div>
+
+
+    <div class="hero-rating">
+      <div class="avatars">
+        <img src="Group 30710.png">
+      
+        <span class="plus">+</span>
+      </div>
+      <div class="rating-text">
+        <strong>4.9k Ratings+</strong><br>
+        <small>Trusted by 50k customers</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="why-choose">
+  <h2>Why Choose Us</h2>
+
+  <div class="why-grid">
+
+    <div class="why-card">
+      <img src="Christmas Gift Wrapping Ideas – 18 Creative Ways… 1.png" alt="Curated Gifts">
+      <p>Curated Gift Collections</p>
+    </div>
+
+    <div class="why-card">
+      <img src="This Night Lights item by ARTOPSHK has 3088… 2.png" alt="Personalization">
+      <p>Personalization options</p>
+    </div>
+
+    <div class="why-card">
+      <img src="🚚✨ “Fantastic delivery service!” – Manmohan… 2.png" alt="Fast Delivery">
+      <p>Fast & Reliable Delivery</p>
+    </div>
+
+    <div class="why-card">
+      <img src="Qr code scanning with characters _ Premium Vector 2.png" alt="Secure Payments">
+      <p>Easy & Secure Payments</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<section class="featured">
+  <h2>Featured collections</h2>
+
+  <div class="featured-grid">
+
+    <!-- CARD 1 -->
+    <div class="product-card">
+      <span class="wish">♡</span>
+      <img src="image 35.png" alt="Frame">
+      <h3>The Picture Frame set</h3>
+      <p class="price">Rs: 1000 Per Package</p>
+      <div class="actions">
+        <button class="shop">Shop now</button>
+        <button class="custom">Customize</button>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="product-card">
+      <span class="wish">♡</span>
+      <img src="image 36.png" alt="Mug">
+      <h3>The Picture Frame set</h3>
+      <p class="price">Rs: 1000 Per Package</p>
+      <div class="actions">
+        <button class="shop">Shop now</button>
+        <button class="custom">Customize</button>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="product-card">
+      <span class="wish">♡</span>
+      <img src="image 35.png" alt="Frame">
+      <h3>The Picture Frame set</h3>
+      <p class="price">Rs: 1000 Per Package</p>
+      <div class="actions">
+        <button class="shop">Shop now</button>
+        <button class="custom">Customize</button>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="product-card">
+      <span class="wish">♡</span>
+      <img src="image 35.png" alt="Frame">
+      <h3>The Picture Frame set</h3>
+      <p class="price">Rs: 1000 Per Package</p>
+      <div class="actions">
+        <button class="shop">Shop now</button>
+        <button class="custom">Customize</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<section class="special-offer">
+
+  <h2 class="offer-title">Special offer & discounts</h2>
+
+  <div class="offer-wrapper">
+
+    <!-- LEFT CONTENT -->
+    <div class="offer-content">
+      <h1>
+        OFF SEASON
+        <span class="highlight">COLLECTIONS</span>
+        GET <span class="discount">30%</span>
+      </h1>
+
+      <h3>"Unwrap the Joy – Special Offers Just for You!"</h3>
+
+      <p>
+        Celebrate every moment with thoughtful gifts at irresistible prices.
+        Discover handpicked treasures for every occasion – now on
+        limited-time discount!
+      </p>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="offer-image">
+      <img src="image 8.png" alt="Special Offer">
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-box">
+
+    <!-- FAQ 1 -->
+    <div class="faq-item active">
+      <div class="faq-question">
+        <h3>1. What types of gifts do you offer?</h3>
+        <span class="icon">⌄</span>
+      </div>
+      <div class="faq-answer">
+        <p>
+          We offer a wide range of gifts for all occasions—birthdays,
+          anniversaries, weddings, corporate events, and more. Our
+          collection includes personalized items, luxury hampers, home
+          décor, custom keepsakes, and curated gift boxes.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>2. Do you offer gift wrapping or personalized messages?</h3>
+        <span class="icon">⌄</span>
+      </div>
+      <div class="faq-answer">
+        <p>
+          Yes! We offer free gift wrapping and the option to include a
+          personalized message with every order. Simply select the
+          option during checkout.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>3. How long does delivery take?</h3>
+        <span class="icon">⌄</span>
+      </div>
+      <div class="faq-answer">
+        <p>
+          Delivery times vary depending on your location and the product.
+          Standard shipping usually takes 3–7 business days, while
+          express shipping is available for 1–3 day delivery.
+          Custom/personalized items may take an extra 1–2 days for
+          processing.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===== REGISTER POPUP ===== -->
+<div class="overlay" id="overlay">
+  <div class="popup">
+    <span class="close" onclick="closePopup()">✕</span>
+    <h2>Register Free !</h2>
+
+    <input type="email" placeholder="Enter your e-mail">
+    <input type="password" placeholder="Password">
+
+    <button class="login-btn" onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- ===== LOGIN SUCCESS ===== -->
+<div class="success" id="success">
+  <h1>Login Successfully</h1>
+</div>
+
+
+
+
+<script>
+function openPopup(){
+  document.getElementById("overlay").style.display="flex";
+}
+
+function closePopup(){
+  document.getElementById("overlay").style.display="none";
+}
+
+function login(){
+  document.getElementById("overlay").style.display="none";
+  document.getElementById("success").style.display="block";
+
+  setTimeout(()=>{
+    document.getElementById("success").style.display="none";
+    document.getElementById("home").style.display="block";
+  },2000);
+}
+
+
+
+
+document.querySelectorAll(".faq-question").forEach(q => {
+  q.addEventListener("click", () => {
+    const item = q.parentElement;
+
+    document.querySelectorAll(".faq-item").forEach(faq => {
+      if(faq !== item){
+        faq.classList.remove("active");
+      }
+    });
+
+    item.classList.toggle("active");
+  });
+});
+
+
+
+
+
+  const hero = document.getElementById("hero");
+
+  // test JS first
+  console.log("Hero JS loaded");
+
+  setInterval(() => {
+    hero.style.opacity = "0.4";   // blink
+    setTimeout(() => {
+      hero.style.opacity = "1";   // normal
+    }, 150);
+  }, 3000);
+</script>
+
+
+
+
+<footer class="main-footer">
+
+  <div class="footer-grid">
+
+    <!-- LOGO -->
+    <div class="footer-logo">
+      <div class="logo-blink">
+        <img src="Frame 427318985.png" alt="VibeyGifts">
+      </div>
+      <h3 class="brand-name">VibeyGifts</h3>
+    </div>
+
+    <!-- CUSTOMER SERVICE -->
+    <div class="footer-col">
+      <h4>Customer service</h4>
+      <a href="#">My Account</a>
+      <a href="#">Checkup</a>
+      <a href="#">FAQ</a>
+      <a href="#">Return</a>
+    </div>
+
+    <!-- COMPANY -->
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About us</a>
+      <a href="#">Blogs</a>
+      <a href="#">Contact us</a>
+      <a href="#">Career</a>
+    </div>
+
+    <!-- OUR INFORMATION -->
+    <div class="footer-col">
+      <h4>Our information</h4>
+      <a href="#">Privacy</a>
+      <a href="#">Terms & Condition</a>
+      <a href="#">Customer Feed back</a>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h4>Mobile: 123-456-789</h4>
+      <p>Email_ Vibeygif@gmail.com</p>
+      <p>Address : 12,,north city–001</p>
+
+      <div class="social-icons">
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2025 Giftey.co. All rights reserved.</p>
+    <p><strong>Terms & Conditions</strong> | <strong>Privacy Policy</strong></p>
+  </div>
+
+</footer>
+
+</body>
+</html>
